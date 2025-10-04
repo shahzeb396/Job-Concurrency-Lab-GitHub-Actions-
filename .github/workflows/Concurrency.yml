@@ -1,0 +1,12 @@
+name: Concurrency Control
+
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: prod-deploy
+      cancel-in-progress: true
+    steps:
+      - run: echo "Deploying build... only one job at a time allowed And Developer Name Shahzeb."
